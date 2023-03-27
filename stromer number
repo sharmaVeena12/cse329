@@ -1,0 +1,38 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+int gp(int n){
+vector<int>prime;
+
+for(int i=2;i<=n/2;i++){
+if(n%i==0){
+bool prm = true;
+for(int j=2;j<i/2;j++){
+if(i%j==0){
+prm=false;
+}
+}
+if(prm){
+prime.push_back(i);
+}
+
+}
+}
+sort(prime.begin(),prime.end());
+return prime[prime.size()-1];
+}
+int main(){
+int i;
+cin>>i;
+int term = (i*i)+1;
+int match = 2*i;
+int grtPrime = gp(term);
+if(grtPrime>=match){
+cout<<"Stromer's numnber!!";
+}
+else{
+cout<<"Not a Stromer's number!!";
+}
+}
+
